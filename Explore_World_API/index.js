@@ -4,11 +4,11 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 mongoose.connect(
- "mongodb://127.0.0.1:27017/Blog_APP_Android",
+  "mongodb://localhost:27017/explore_world",
   {
+    useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true,
   }
 );
 
@@ -26,7 +26,6 @@ const profileRoute = require("./routes/profile");
 app.use("/profile", profileRoute);
 const blogRoute = require("./routes/blogpost");
 app.use("/blogPost", blogRoute);
-
 
 app.route("/").get((req, res) => res.json(data));
 
